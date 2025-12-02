@@ -1,13 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const swaggerUi = require('swagger-ui-express'); // <--- Importado
-const swaggerDocument = require('./swagger.json'); // <--- Importado (certifique-se de ter criado este arquivo)
+const swaggerUi = require('swagger-ui-express'); 
+const swaggerDocument = require('./swagger.json'); 
 
 const app = express();
 app.use(express.json());
 
 // ---SWAGGER
-// Acesse http://localhost:3000/api-docs para ver a documentação
+//http://localhost:3000/api-docs 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // ---CONEXÃO COM O MONGODB 
@@ -29,7 +29,7 @@ const PedidoSchema = new mongoose.Schema({
     }]
 });
 
-// Cria o Modelo 
+
 const Pedido = mongoose.model('Pedido', PedidoSchema);
 
 // ---FUNÇÃO DE MAPPING 
